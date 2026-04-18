@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Nexus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee:wght@400&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">PX</span>
+          <div>
+            <p class="eyebrow">Plataforma Pokemon</p>
+            <h1>Pokemon Nexus</h1>
+          </div>
+        </div>
+        <div class="topbar-links">
+          <a href="#usuarios">Usuarios</a>
+          <a href="#pokedex">Pokedex</a>
+          <a href="#capturas">Capturas</a>
+        </div>
+      </nav>
+
+      <section class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Centro de entrenamiento Kalos</p>
+
+          <h2>
+            Una interfaz potente y lista para conectar tu mundo Pokemon.
+          </h2>
+
+          <p class="hero-text">
+            Pokemon Nexus te permite administrar entrenadores,
+            explorar el catálogo y gestionar capturas desde un solo sitio.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#usuarios">Empezar</a>
+            <a class="button button-secondary" href="#paneles">Ver módulos</a>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main id="paneles" class="dashboard">
+      <section class="summary-grid">
+        <article class="summary-card">
+          <p>Total de usuarios</p>
+          <strong id="summary-users">--</strong>
+          <span>Se conectará al módulo de usuarios.</span>
+        </article>
+        <article class="summary-card">
+          <p>Pokemon registrados</p>
+          <strong id="summary-pokemon">0</strong>
+          <span>Base lista para poblar el catálogo.</span>
+        </article>
+        <article class="summary-card">
+          <p>Capturas</p>
+          <strong id="summary-captures">0</strong>
+          <span>Pokémon capturados por los entrenadores.</span>
+        </article>
+      </section>
+
+      <section class="module-grid">
+        <article id="usuarios" class="module-card">
+          <div class="module-header">
+            <p class="eyebrow">Módulo 1</p>
+            <h3>Entrenadores</h3>
+          </div>
+          <p>Zona destinada para registrar usuarios, listar entrenadores y gestionar sus datos.</p>
+          <ul class="feature-list">
+            <li>Registro con validaciones</li>
+            <li>Listado de usuarios</li>
+            <li>Edición y eliminación</li>
+          </ul>
+          <button class="module-action" type="button" data-panel-target="usuarios-panel">Ver panel</button>
+        </article>
+
+        <article id="pokedex" class="module-card">
+          <div class="module-header">
+            <p class="eyebrow">Módulo 2</p>
+            <h3>Pokedex Kalos</h3>
+          </div>
+          <p>Base visual del catálogo para mostrar los Pokemon, buscarlos y luego capturarlos.</p>
+          <ul class="feature-list">
+            <li>Buscador y filtros</li>
+            <li>Tarjetas visuales</li>
+            <li>Zona para datos completos</li>
+          </ul>
+          <button class="module-action" type="button" data-panel-target="pokedex-panel">Ver panel</button>
+        </article>
+
+        <article id="capturas" class="module-card">
+          <div class="module-header">
+            <p class="eyebrow">Módulo 3</p>
+            <h3>Centro de capturas</h3>
+          </div>
+          <p>Espacio pensado para asociar usuarios con Pokemon capturados e historiales.</p>
+          <ul class="feature-list">
+            <li>Selección de usuario</li>
+            <li>Registro de captura</li>
+            <li>Historial por entrenador</li>
+          </ul>
+          <button class="module-action" type="button" data-panel-target="capturas-panel">Ver panel</button>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <aside class="workspace-nav">
+          <button class="workspace-tab is-active" type="button" data-panel-target="usuarios-panel">Usuarios</button>
+          <button class="workspace-tab" type="button" data-panel-target="pokedex-panel">Pokedex</button>
+          <button class="workspace-tab" type="button" data-panel-target="capturas-panel">Capturas</button>
+        </aside>
+
+        <div class="workspace-panels">
+          <section id="usuarios-panel" class="workspace-panel is-active">
+            <div class="panel-title">
+              <p class="eyebrow">Administración</p>
+              <h3>Panel de usuarios</h3>
+            </div>
+            <div class="users-layout">
+              <article class="placeholder-card form-card">
+                <div class="section-heading">
+                  <h4 id="user-form-title">Registrar entrenador</h4>
+                  <p>Conecta directamente con el backend de usuarios.</p>
+                </div>
+
+                <form id="user-form" class="user-form">
+                  <div class="field-grid">
+                    <label class="field">
+                      <span>Cédula</span>
+                      <input id="cedula" name="cedula" type="text" maxlength="10" placeholder="Ej: 12345678" required>
+                    </label>
+
+                    <label class="field">
+                      <span>Edad</span>
+                      <input id="edad" name="edad" type="number" min="18" max="100" placeholder="18" required>
+                    </label>
+                  </div>
+
+                  <label class="field">
+                    <span>Nombre</span>
+                    <input id="nombre" name="nombre" type="text" maxlength="50" placeholder="Ash Ketchum" required>
+                  </label>
+
+                  <label class="field">
+                    <span>Email</span>
+                    <input id="email" name="email" type="email" placeholder="entrenador@pokemon.com" required>
+                  </label>
+
+                  <div id="user-feedback" class="feedback" aria-live="polite"></div>
+
+                  <div class="form-actions">
+                    <button class="module-action" type="submit" id="user-submit-button">Guardar usuario</button>
+                    <button class="button button-secondary" type="button" id="user-cancel-button" hidden>Cancelar edición</button>
+                  </div>
+                </form>
+              </article>
+
+              <article class="placeholder-card list-card">
+                <div class="section-heading">
+                  <h4>Entrenadores registrados</h4>
+                  <p>Consulta, edita o elimina usuarios existentes.</p>
+                </div>
+
+                <div class="list-toolbar">
+                  <button class="button button-secondary" type="button" id="refresh-users-button">Actualizar lista</button>
+                  <span id="users-count" class="toolbar-badge">0 usuarios</span>
+                </div>
+
+                <div id="users-empty-state" class="empty-state">Aún no hay usuarios cargados.</div>
+
+                <div id="users-list" class="users-list"></div>
+              </article>
+            </div>
+          </section>
+
+          <section id="pokedex-panel" class="workspace-panel">
+            <div class="panel-title">
+              <p class="eyebrow">Catálogo Global</p>
+              <h3>Panel de pokedex</h3>
+            </div>
+            
+            <div class="pokedex-controls" style="margin-bottom: 2rem;">
+              <article class="placeholder-card">
+                <div class="field">
+                  <span>Buscador de Pokémon</span>
+                  <input id="pokemon-search" type="text" placeholder="Ej: Pikachu o Electric..." style="width: 100%;">
+                  <select id="pokemon-tipo" style="margin-top: 1rem; width: 100%;">
+                    <option value="">Todos los tipos</option>
+                    <option value="fire">Fuego</option>
+                    <option value="water">Agua</option>
+                    <option value="grass">Planta</option>
+                    <option value="electric">Eléctrico</option>
+                    <option value="normal">Normal</option>
+                    <option value="poison">Veneno</option>
+                    <option value="bug">Bicho</option>
+                    <option value="flying">Volador</option>
+                  </select>
+                </div>
+                <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <p id="pokemon-count" class="toolbar-badge">0 pokémon</p>
+                    <div id="pokemon-empty-state" class="is-hidden" style="color: var(--text-muted);">No hay pokemon</div>
+                </div>
+              </article>
+            </div>
+
+            <div id="pokemon-list" class="placeholder-layout">
+              <article class="placeholder-card">
+                <h4>Catálogo visual</h4>
+                <p>Aquí se mostrarán las tarjetas de Pokemon con sus filtros y tipos.</p>
+              </article>
+            </div>
+            <div id="pagination" class="pagination" style="margin-top: 2rem;"></div>
+          </section>
+
+          <section id="capturas-panel" class="workspace-panel">
+            <div class="panel-title">
+              <p class="eyebrow">Gestión de Capturas</p>
+              <h3>Capturas</h3>
+            </div>
+            <div class="placeholder-layout">
+              <article class="placeholder-card">
+                <h4>Capturar Pokémon</h4>
+                <select id="captura-usuario"></select>
+                <input type="text" id="pokemon-search-select" placeholder="Buscar Pokémon..." />
+
+                <select id="captura-pokemon"></select>
+
+                <button id="capturar-btn">Capturar</button>
+
+                <div id="captura-feedback"></div>
+              </article>
+              <article class="placeholder-card">
+                <h4>Pokémon capturados</h4>
+                <input id="buscar-usuario-captura" placeholder="Cédula usuario">
+
+                <button id="ver-capturas">Ver capturas</button>
+
+                <div id="capturas-list"></div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
